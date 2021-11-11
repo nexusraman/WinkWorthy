@@ -1,31 +1,30 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary mb-4">
     <div class="d-flex bd-highlight  container-fluid">
-        <a class="navbar-brand" href="#">Wink Worthy</a>
+        <a class="navbar-brand" routerLinkActive="active" routerLink="/">Wink Worthy</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="accountService.currentUser$ | async">
-                <li class=" nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Matches</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">List</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Messages</a>
-                </li>
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <ng-container *ngIf="accountService.currentUser$ | async">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLinkActive="active" routerLink="/members">Matches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLinkActive="active" routerLink="/lists">List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLinkActive="active" routerLink="/messages">Messages</a>
+                    </li>
+                </ng-container>
 
             </ul>
 
 
 
-            <div class="dropdown me-auto" *ngIf=" accountService.currentUser$| async" dropdown>
-                <a class="dropdown-toggle text-light" dropdownToggle>Welcome User</a>
+            <div class="dropdown me-auto" *ngIf="( accountService.currentUser$| async) as user" dropdown>
+                <a class="dropdown-toggle text-light" dropdownToggle>Welcome {{user.username | titlecase}}</a>
                 <div class="dropdown-menu" *dropdownMenu>
                     <a class="dropdown-item">Edit Profile</a>
                     <div class="dropdown-divider"></div>
