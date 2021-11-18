@@ -3,9 +3,9 @@ import { Member } from 'src/app/_models/member';
 import { MembersService } from 'src/app/_services/members.service';
 import { ActivatedRoute } from '@angular/router';
 import {
-  NgxGalleryAnimation,
-  NgxGalleryImage,
   NgxGalleryOptions,
+  NgxGalleryImage,
+  NgxGalleryAnimation,
 } from '@kolkov/ngx-gallery';
 
 @Component({
@@ -25,6 +25,7 @@ export class MemberDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadMember();
+
     this.galleryOptions = [
       {
         width: '500px',
@@ -39,15 +40,13 @@ export class MemberDetailComponent implements OnInit {
 
   getImages(): NgxGalleryImage[] {
     const imageUrls = [];
-
     for (const photo of this.member.photos) {
       imageUrls.push({
         small: photo?.url,
-        meduum: photo?.url,
+        medium: photo?.url,
         big: photo?.url,
       });
     }
-
     return imageUrls;
   }
 
