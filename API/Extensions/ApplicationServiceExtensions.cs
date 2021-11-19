@@ -20,6 +20,8 @@ namespace API.Extensions
                        });
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ITokenService, TokenService>();
+            services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
+            services.AddScoped<IPhotoService, photoService>();
 
             return services;
         }

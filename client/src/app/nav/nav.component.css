@@ -1,15 +1,10 @@
-.dropdown {
-  margin-left: auto;
+.dropdown-toggle, .dropdown-item {
+    cursor: pointer;
 }
 
-/* .navbar {
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-} */
-
-.navbar-brand {
-  border: 0px solid transparent;
-  border-radius: 10px;
-  padding: 5px 10px 5px 10px;
-  background: linear-gradient(to right, #283048, #859398);
-  font-size: 18px;
+img {
+    max-height: 50px;
+    border: 2px solid #fff;
+    display: inline;
 }
+
